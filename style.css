@@ -1,0 +1,350 @@
+/* The plan - index has a navy background with light blue boxes
+for speech. headers are in bolded gold, regular text is in navy times new roman. Bullet points are the flowers
+and there's a blue-orange header image. 
+
+projects & experience & service - header is 3 images combined
+blue/orange flowers on the side, still with navy background, gold text, light blue text boxes with rounded edges
+
+placement of flowers changes based on page - qualifications has them in diagonals - left top and right bottom
+service has it on all four corners of the text box 
+
+all bullet points are smaller versions of the flowers. The other pages should be side by side at the bottom, with the flower bullet points in between. 
+AI page - header is 3 giant navy-orange carnations, background is 'sunset on an ocean' color gradient, text is in diagonal boxes - top left and bottom right, 
+prompt is in a text box at the bottom. Text box colors should be a lighter/more legible version of the gradient, with navy text.  */
+
+/* for everything - background color, text color and font, text boxes, use flowers as bullet points, use flowers in between footer - links to other pages */
+
+/*TODO - edit index page so that footer is after text box for index page*/
+
+.root {
+    --box-bg: rgb(1,1,99);
+    --box-border: gold;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(1, 1, 99);
+    font-family: "Times New Roman";
+}
+.layout {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    flex-wrap: wrap; /* wrap on small screens */
+  }
+  
+  .section {
+    width: 300px;
+    background: var(--box-bg);
+    border: 2px solid var(--box-border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+  }
+
+h3 {
+    /*sets header style*/
+    color: rgb(219, 144, 5);
+    font-family: "Brush Script MT", cursive;
+    font-weight: bold;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+p{
+    color: rgb(253, 216, 154);
+    font-family: "Times New Roman";
+}
+
+
+/* Images in row 1 */
+  .section:nth-child(1) img { grid-column: 1; grid-row: 1; }
+  .section:nth-child(2) img { grid-column: 2; grid-row: 1; }
+  .section:nth-child(3) img { grid-column: 3; grid-row: 1; }
+  
+  .layout img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+  }
+  
+  /* Text boxes stacked below */
+  .box {
+    grid-column: 1 / -1;
+    background: var(--box-bg);
+    border: 2px solid var(--box-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    max-width: 800px;
+    margin: 0 auto 12px auto;
+    
+  }
+
+
+
+/* DONE- Need to add a separate text box for my resume - want it to be dark orange with a navy wording to stand out more*/
+.resume-box{
+    background-color: rgb(253, 216, 154);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 400px;
+}
+
+/*Add flowers to the project page*/
+#project-page .section:nth-child(1){
+    position: relative;
+}
+#project-page .section:nth-child(1)::before {
+    content: "";
+    position: absolute;
+    left: -140px;   /* adjust spacing */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 125px;
+    height: 125px;
+    background: url("Pictures/flower_button.png") no-repeat center/contain;
+    z-index: 10;
+}
+#project-page .section:nth-child(3){
+    position: relative;
+}
+#project-page .section:nth-child(3)::after{
+    content: "";
+    position: absolute;
+    right: -140px;  /* adjust spacing */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 125px;
+    height: 125px;
+    background: url("Pictures/flower_button.png") no-repeat center/contain;
+    z-index: 10;
+}
+
+
+/*Service page - want the 3 images grouped together at the top and a larger text box*/
+/*TODO: redo images to round the edges*/
+#service-page .layout{
+    display: block;
+}
+#service-page .section{
+    width: auto;
+    border: none;
+    background: none;
+}
+#service-page .images-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+#service-page .images-row img{
+    height: 200px;
+    width: 200px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+#service-page .text-box.wide{
+    max-width:2000px;
+    margin: 0 auto;
+    padding: 20px 30px;
+}
+
+/*bullet points for flowers*/ 
+ul{
+    list-style-image: url("Pictures/flower_button.png")
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+footer a{
+    color: gold;
+    margin: 0px;
+    padding-bottom:40px;
+}
+footer a::before{
+    /* need to look up how to resize pngs in the footer ONLY */
+    content:"";
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+    background-image: url("Pictures/flower_button.png");
+    background-size: contain;
+    margin: 10px;
+    /*TODO - add padding at the bottom */
+}
+
+/* index-specific header && force the footer to go after the text*/
+
+
+#index-page header{
+    background: url("Pictures/index_header.jpg") no-repeat center;
+    background-size:cover;
+    height: 200px;
+}
+
+#index-page footer{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    /*text-align: center;*/
+    
+}
+
+
+
+
+
+/*TODO - edit page so that footer is after text box for index page*/
+
+
+
+
+
+
+/*DONE - add the flowers for the service and qualification pages - on the corners of text boxes */
+#service-page::before, #service-page::after
+{
+    content:"";
+    position: fixed;
+    width: 125px;
+    height: 125px;
+    background:url("Pictures/flower_button.png") no-repeat center/contain;
+    z-index:999;
+    pointer-events: none;
+}
+
+#service-page::before{
+    top: 10px;
+    right: 10px;
+}
+#service-page::after{
+    bottom: 10px;
+    left: 10px;
+}
+
+#qualifications-page::before, #qualifications-page::after
+{
+    content:"";
+    position: fixed;
+    width: 125px;
+    height: 125px;
+    background:url("Pictures/flower_button.png") no-repeat center/contain;
+    z-index:999;
+    pointer-events: none;
+}
+
+#qualifications-page::before{
+    top: 10px;
+    left: 10px;
+}
+#qualifications-page::after{
+    bottom: 10px;
+    right: 10px;
+}
+
+
+
+/*TODO- need to do AI page - TA said I can use chatgpt for style elements that are only for the AI page */
+
+/* ================= AI PAGE ================= */
+
+/* Sunset-on-ocean gradient for AI page */
+#ai-page {
+    background: linear-gradient(
+        to bottom right,
+        #001f3f 0%,   /* deep navy */
+        #4ba9c4 50%,  /* ocean blue */
+        #ff8c00 75%,  /* rich orange */
+        #daa520 100%   /* golden highlight */
+    );
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Header images layout */
+#ai-page .layout:first-child {
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 40px;
+}
+
+#ai-page .layout:first-child .section img {
+    height: 250px;
+    width: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+/* Diagonal text sections */
+#ai-page .section.top-left,
+#ai-page .section.bottom-right {
+    background: rgba(255, 230, 200, 0.85);
+    color: rgb(1, 1, 99);
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 500px;
+    position: relative;
+}
+
+#ai-page .section.top-left {
+    transform: rotate(-2deg);
+    margin-left: 50px;
+    margin-bottom: 40px;
+}
+
+#ai-page .section.bottom-right {
+    transform: rotate(2deg);
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+/* Footer links in layout */
+#ai-page footer .layout {
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+#ai-page footer a {
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Prompt box at bottom */
+#ai-page footer p {
+    background: rgba(255, 240, 220, 0.9);
+    color: rgb(1, 1, 99);
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    text-align: center;
+}
+
+#ai-page p{
+    color: navy;
+}
+
